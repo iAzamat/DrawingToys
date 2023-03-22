@@ -58,8 +58,8 @@ public class Model implements ProgrammFunction {
                                         + secondArray[3]));
 
                         JOptionPane.showMessageDialog(null,
-                                "Вы выйграли: " + secondArray[1] + "\nваш код выйгрыша: " + idUser,
-                                "Окно выйгрыша",
+                                "Вы выиграли: " + secondArray[1] + "\nваш код выигрыша: " + idUser,
+                                "Окно выигрыша",
                                 JOptionPane.INFORMATION_MESSAGE);
 
                         bw.write(secondArray[0] + ";" + secondArray[1] + ";" + idUser);
@@ -210,7 +210,7 @@ public class Model implements ProgrammFunction {
                 secondArray = priorityArray.get(j).split(";");
                 if (idUser == Integer.parseInt(secondArray[2])) {
                     JOptionPane.showMessageDialog(null,
-                            "Поздравляем ваш выйгрыш\n" + secondArray[0] + "," + secondArray[1],
+                            "Поздравляем ваш выигрыш\n" + secondArray[0] + "," + secondArray[1],
                             "Выдача игрушки",
                             JOptionPane.INFORMATION_MESSAGE);
 
