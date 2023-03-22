@@ -99,10 +99,6 @@ public class Model implements ProgrammFunction {
 
     @Override
     public void changeWeightChance() {
-        int idToy = Integer.parseInt(JOptionPane.showInputDialog(null,
-                "Введите Id игрушки для изменения веса: ",
-                "Изменение веса игрушки",
-                JOptionPane.INFORMATION_MESSAGE));
         String str;
         try {
             File path = new File(storagePath);
@@ -113,18 +109,25 @@ public class Model implements ProgrammFunction {
             }
             br.close();
 
-            for (int j = 0; j < priorityArray.size(); j++) {
-                String[] secondArray = new String[4];
-                secondArray = priorityArray.get(j).split(";");
-                if (idToy == Integer.parseInt(secondArray[0])) {
-                    int weigthChance = Integer.parseInt(JOptionPane.showInputDialog(null,
-                            priorityArray.get(j) + "\nВведите новую величину веса в %: ",
-                            "Изменение веса игрушки",
-                            JOptionPane.INFORMATION_MESSAGE));
-                    String res = secondArray[0] + ";" + secondArray[1] + ";" + secondArray[2] + ";" + weigthChance;
-                    priorityArray.set(j, res);
-                }
-            }
+            Object[] options = priorityArray.toArray();
+            Object value = JOptionPane.showInputDialog(null,
+                    "Выберете игрушку, вес которой необходимо изменить",
+                    "Изменение веса игрушки",
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+
+            int j = priorityArray.indexOf(value);
+            String[] secondArray = new String[4];
+            secondArray = priorityArray.get(j).split(";");
+            int weigthChance = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    priorityArray.get(j) + "\nВведите новую величину веса в %: ",
+                    "Изменение веса игрушки",
+                    JOptionPane.INFORMATION_MESSAGE));
+            String res = secondArray[0] + ";" + secondArray[1] + ";" + secondArray[2] + ";" + weigthChance;
+            priorityArray.set(j, res);
+
             BufferedWriter bw = new BufferedWriter(new FileWriter(path));
             for (int k = 0; k < priorityArray.size(); k++) {
                 bw.write(priorityArray.get(k));
