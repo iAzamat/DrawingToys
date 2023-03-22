@@ -160,7 +160,7 @@ public class Model implements ProgrammFunction {
                         "Добавление игрушки",
                         JOptionPane.QUESTION_MESSAGE)));
         try {
-            File path = new File("Storage.txt");
+            File path = new File(storagePath);
 
             if (!path.exists()) {
                 path.createNewFile();
