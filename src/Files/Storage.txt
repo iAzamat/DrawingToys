@@ -1,0 +1,8 @@
+152;Ball;7;50
+856;Robot;8;75
+78;Katana;7;40
+112;Machine;9;45
+865;Might;9;85
+200;Table;9;86
+300;Hammer;8;45
+400;BMW;9;85
